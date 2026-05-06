@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FloodLens Italy | Forlì Flood Exposure</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">≋</div>
+      <div>
+        <h1>FloodLens Italy</h1>
+        <p>Forlì flood exposure prototype</p>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <span class="status-pill">MPH scenario</span>
+      <span class="status-pill light">Open data</span>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="sidebar">
+      <section class="panel">
+        <p class="eyebrow">Explore exposure</p>
+        <h2>If flooding happens here, what is exposed?</h2>
+        <p class="description">
+          This prototype maps assets intersecting the ISPRA Medium Probability
+          Hazard flood layer within the Comune di Forlì.
+        </p>
+      </section>
+
+      <section class="panel metrics-panel">
+        <h3>Exposure summary</h3>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <span class="metric-label">Buildings exposed</span>
+            <strong>40,415</strong>
+            <span class="metric-unit">buildings</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-label">Roads affected</span>
+            <strong>1,064.90</strong>
+            <span class="metric-unit">km</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-label">Schools exposed</span>
+            <strong>18 / 18</strong>
+            <span class="metric-unit">100%</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-label">Hospitals exposed</span>
+            <strong>2 / 9</strong>
+            <span class="metric-unit">22.2%</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Map layers</h3>
+
+        <label class="layer-toggle">
+          <input type="checkbox" id="toggleFlood" checked />
+          <span>Flood hazard zone</span>
+        </label>
+
+        <label class="layer-toggle">
+          <input type="checkbox" id="toggleRoads" checked />
+          <span>Affected roads</span>
+        </label>
+
+        <label class="layer-toggle">
+          <input type="checkbox" id="toggleSchools" checked />
+          <span>Exposed schools</span>
+        </label>
+
+        <label class="layer-toggle">
+          <input type="checkbox" id="toggleHospitals" checked />
+          <span>Exposed hospitals</span>
+        </label>
+      </section>
+
+      <section class="panel note-panel">
+        <h3>Important note</h3>
+        <p>
+          Results are preliminary. Exposure means spatial intersection with the
+          official hazard scenario, not direct damage prediction.
+        </p>
+      </section>
+    </aside>
+
+    <section class="map-section">
+      <div id="map"></div>
+<div class="legend-card">
+  <h3>Legend</h3>
+
+  <div class="legend-item">
+    <span class="legend-swatch flood"></span>
+    <span>MPH flood hazard</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-line road"></span>
+    <span>Affected roads</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-dot school"></span>
+    <span>Exposed schools</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-dot hospital"></span>
+    <span>Exposed hospitals</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-line boundary"></span>
+    <span>Forlì boundary</span>
+  </div>
+</div>
+      <div class="insight-card">
+        <div class="insight-header">
+          <h3>Area insight</h3>
+          <span>Forlì · MPH</span>
+        </div>
+        <p>
+          Exposure is concentrated around the urban fabric and transport network,
+          where dense buildings, roads, schools, and hospitals overlap with the
+          medium-probability flood hazard zone.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>
